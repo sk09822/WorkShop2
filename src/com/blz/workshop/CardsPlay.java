@@ -3,6 +3,8 @@ package com.blz.workshop;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.blz.demo.Player;
+
 public class CardsPlay {
 	int playerCount;
 	String[] cards = new String[52];
@@ -51,6 +53,20 @@ public class CardsPlay {
 		}
 	}
 
+	public void shuffleCards() {
+		for (int i = 0; i < cardsArr.size(); i++) {
+			int min = 0;
+			int max = cardsArr.size() - 1;
+			int position = (int) (Math.random() * (max - min + 1) + min);
+			int newPosition = (position - i);
+			if (newPosition < 0 || newPosition > 52)
+				newPosition = 0;
+			String temp = cardsArr.get(newPosition);
+			cardsArr.set(newPosition, cardsArr.get(i));
+			cardsArr.set(i, temp);
+		}
+	}
+
 	public String getCards() {
 		int min = 0;
 		int max = cardsArr.size() - 1;
@@ -61,4 +77,14 @@ public class CardsPlay {
 		cardsArr.remove(position);
 		return returnValue;
 	}
+
+public void distributeCards(){
+    for(int i=1; i<=9; i++){
+        for(Player playerObj : playerList){
+            //adding each card in cardList of each player
+            playerObj.setCardList(getCards());
+
+        }
+    }
+}
 }
