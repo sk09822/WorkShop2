@@ -16,6 +16,7 @@ public class Main {
 		play.shuffleCards();
 		play.getCards();	
 		play.distributeCards();
+		play.setPlayerSequence();
 
 	}
 
