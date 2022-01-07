@@ -51,4 +51,14 @@ public class CardsPlay {
 		}
 	}
 
+	public String getCards() {
+		int min = 0;
+		int max = cardsArr.size() - 1;
+		int position = (int) (Math.random() * (max - min + 1) + min);
+		System.out.print("\n Size : " + cardsArr.size() + ", position : " + position);
+
+		String returnValue = cardsArr.get(position);
+		cardsArr.remove(position);
+		return returnValue;
+	}
 }

@@ -13,6 +13,7 @@ public class Main {
 		CardsPlay play = new CardsPlay(playerCount);
 		play.generateCards();
 		play.addPlayer();
+		play.getCards();
 
 	}
 }
